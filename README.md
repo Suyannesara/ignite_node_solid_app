@@ -33,7 +33,7 @@
 - [ ] O user deve ser identificado por um JWT;
 
 
-#### commands
+## commands
 ```bash
     npx tsc --init #cria tsconfig.json
 ```
@@ -56,7 +56,18 @@
     {
         "editor.formatOnSave": false,
         "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": "explicit"
+            "source.fixAll.eslint": "explicit"
+        },
+        "[prisma]": {
+            "editor.formatOnSave": true
         }
     }
 ```
+
+Prisma - ORM
+- Alto nível de abstração pra trabalhar com banco de dados
+model = construcao de uma tabela, no mongo seriam as collections
+
+TOSEARCH
+- [ ] Migrations
+- [ ] NPX
