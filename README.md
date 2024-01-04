@@ -49,3 +49,14 @@
       "@/*": ["./src/*"]
     },  
 ```
+
+#### space settings 
+```json
+// settings.json
+    {
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit"
+        }
+    }
+```
