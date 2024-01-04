@@ -37,3 +37,8 @@
 ```bash
     npx tsc --init #cria tsconfig.json
 ```
+// eslint config
+```bash
+    npm i eslint -D
+    npx eslint --init
+```
