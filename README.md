@@ -67,6 +67,45 @@
 Prisma - ORM
 - Alto nível de abstração pra trabalhar com banco de dados
 model = construcao de uma tabela, no mongo seriam as collections
+```bash
+    ## init base prisma start files
+    npx prisma init ## npx runs scrips from node_modules/bin
+
+    ## create the migrations, tables and so on of database
+    npx prisma migrate dev
+
+    ## open an interface to see database visually
+    npx prisma studio
+
+```
+
+Docker images at dockerhub
+bitnami images looks to the security part more carefully
+
+```bash
+    ## create container
+    sudo docker run --name your_container_name -e POSTGRESQL_USERNAME=db_username -e POSTGRESQL_PASSWORD=password -e POSTGRESQL_DATABASE=db_name -p 5432:5432 bitnami/postgresql 
+
+    ## see containers running
+    sudo docker ps ## -a(all containers)
+
+    ## start a container
+    sudo docker start container_name
+
+    ## remove a container
+    sudo docker rm container_name
+
+    ## follow logs happening in database
+    sudo docker logs api-solid-pg -f
+
+
+
+    ### manipulating containers with docker compose
+    docker compose down ## kills the containers and deletes it
+    docker compose stop ## stops the container
+    docker compose up -d ## starts container
+
+```
 
 TOSEARCH
 - [ ] Migrations
