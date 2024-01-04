@@ -33,7 +33,7 @@
 - [ ] O user deve ser identificado por um JWT;
 
 
-## commands
+#### commands
 ```bash
     npx tsc --init #cria tsconfig.json
 ```
@@ -41,4 +41,11 @@
 ```bash
     npm i eslint -D
     npx eslint --init
+```
+#### path config
+```json
+    "baseUrl": "./",                                  
+    "paths": {
+      "@/*": ["./src/*"]
+    },  
 ```
