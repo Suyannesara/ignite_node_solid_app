@@ -64,7 +64,7 @@
     }
 ```
 
-Prisma - ORM
+#### Prisma - ORM
 - Alto nível de abstração pra trabalhar com banco de dados
 model = construcao de uma tabela, no mongo seriam as collections
 ```bash
@@ -79,6 +79,7 @@ model = construcao de uma tabela, no mongo seriam as collections
 
 ```
 
+#### Docker
 Docker images at dockerhub
 bitnami images looks to the security part more carefully
 
