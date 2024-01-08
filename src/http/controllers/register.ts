@@ -1,6 +1,7 @@
 import z from 'zod'
-import registerService from '@/services/register'
+import { RegisterService } from '@/services/register'
 import { FastifyRequest, FastifyReply } from 'fastify'
+import { PrismaUsersRepository } from '@/repositories/prisma-users-repository'
 
 export default async (request: FastifyRequest, reply: FastifyReply) => {
   const registerBodySchema = z.object({
@@ -13,7 +14,14 @@ export default async (request: FastifyRequest, reply: FastifyReply) => {
   const { name, email, password } = registerBodySchema.parse(request.body)
 
   try {
-    await registerService({ name, email, password })
+    const usersRepository = new PrismaUsersRepository()
+    /**
+     * D - Dependency Inversoin Principle (from SOLID)
+     * The file that needs to use RegisterService should send the dependencies to this
+     * */
+    const registerService = new RegisterService(usersRepository)
+
+    registerService.execute({ name, email, password })
   } catch (error) {
     return reply.status(409).send()
   }
