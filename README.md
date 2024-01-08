@@ -1,4 +1,7 @@
 # APP
+
+*Project status: 🏗️ building*
+
 ## Requisitos funcionais
 *// funcionalidades que o app vai ter*
 
