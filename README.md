@@ -114,3 +114,4 @@ bitnami images looks to the security part more carefully
 TOSEARCH
 - [ ] Migrations
 - [ ] NPX
+- [ ] In memory test
