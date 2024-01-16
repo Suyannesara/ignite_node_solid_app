@@ -1,17 +1,23 @@
-import { expect, describe, it } from 'vitest'
+import { expect, describe, it, beforeEach } from 'vitest'
 import { RegisterService } from './register'
 import { compare } from 'bcryptjs'
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository'
 import { UserAlreadyExistsError } from './errors/user-already-exists-error'
+import { UsersRepository } from '@/repositories/users-repository'
+
+let usersRepository: UsersRepository
+let sut: RegisterService
 
 describe('Register Service', () => {
-  it('should be able to register', async () => {
-    const usersRepository = new InMemoryUsersRepository()
-    const registerService = new RegisterService(usersRepository)
+  beforeEach(() => {
+    usersRepository = new InMemoryUsersRepository()
+    sut = new RegisterService(usersRepository)
+  })
 
+  it('should be able to register', async () => {
     const password = '123456'
 
-    const { user } = await registerService.execute({
+    const { user } = await sut.execute({
       name: 'test',
       email: 'test@test3.com',
       password,
@@ -21,12 +27,9 @@ describe('Register Service', () => {
   })
 
   it('should hash user password upon registration', async () => {
-    const usersRepository = new InMemoryUsersRepository()
-    const registerService = new RegisterService(usersRepository)
-
     const password = '123456'
 
-    const { user } = await registerService.execute({
+    const { user } = await sut.execute({
       name: 'test',
       email: 'test@test3.com',
       password,
@@ -41,12 +44,9 @@ describe('Register Service', () => {
   })
 
   it('should not be able to register with email already in database', async () => {
-    const usersRepository = new InMemoryUsersRepository()
-    const registerService = new RegisterService(usersRepository)
-
     const email = 'test@test3.com'
 
-    await registerService.execute({
+    await sut.execute({
       name: 'test',
       email,
       password: '123456',
@@ -54,7 +54,7 @@ describe('Register Service', () => {
 
     // expect the promisse to be rejected an trhows an instance of the error
     expect(async () => {
-      await registerService.execute({
+      await sut.execute({
         name: 'test',
         email,
         password: '123456',
