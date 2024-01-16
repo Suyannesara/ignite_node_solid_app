@@ -6,8 +6,8 @@
 *// funcionalidades que o app vai ter*
 
 **Deve ser possível...**
-- [ ] se cadastrar;
-- [ ] se autenticar;
+- [X] se cadastrar;
+- [X] se autenticar;
 - [ ] obter o perfil de um usuário logado;
 - [ ] obter o número de check-ins realizados pelo usuário logado;
 - [ ] o usuário obter seu histórico de check-in;
@@ -115,3 +115,4 @@ TOSEARCH
 - [ ] Migrations
 - [ ] NPX
 - [ ] In memory test
+- [ ] Factory pattern
