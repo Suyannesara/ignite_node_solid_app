@@ -1,8 +1,7 @@
 import z from 'zod'
-import { RegisterService } from '@/services/register'
 import { FastifyRequest, FastifyReply } from 'fastify'
-import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
 import { UserAlreadyExistsError } from '@/services/errors/user-already-exists-error'
+import { makeRegisterUseCase } from '@/services/factories/make-register-use-case'
 
 export default async (request: FastifyRequest, reply: FastifyReply) => {
   const registerBodySchema = z.object({
@@ -14,14 +13,9 @@ export default async (request: FastifyRequest, reply: FastifyReply) => {
   const { name, email, password } = registerBodySchema.parse(request.body)
 
   try {
-    const usersRepository = new PrismaUsersRepository()
-    /**
-     * D - Dependency Inversoin Principle (from SOLID)
-     * The file that needs to use RegisterService should send the dependencies to this
-     * */
-    const registerService = new RegisterService(usersRepository)
+    const registerUseCase = makeRegisterUseCase()
 
-    await registerService.execute({ name, email, password })
+    await registerUseCase.execute({ name, email, password })
   } catch (err) {
     if (err instanceof UserAlreadyExistsError) {
       return reply.status(409).send({ message: err.message })
