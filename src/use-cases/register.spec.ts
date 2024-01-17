@@ -53,12 +53,12 @@ describe('Register Service', () => {
     })
 
     // expect the promisse to be rejected an trhows an instance of the error
-    expect(async () => {
-      await sut.execute({
+    await expect(() =>
+      sut.execute({
         name: 'test',
         email,
         password: '123456',
-      })
-    }).rejects.toBeInstanceOf(UserAlreadyExistsError)
+      }),
+    ).rejects.toBeInstanceOf(UserAlreadyExistsError)
   })
 })
