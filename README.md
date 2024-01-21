@@ -8,19 +8,19 @@
 **Deve ser possível...**
 - [X] se cadastrar;
 - [X] se autenticar;
-- [ ] obter o perfil de um usuário logado;
+- [X] obter o perfil de um usuário logado;
 - [ ] obter o número de check-ins realizados pelo usuário logado;
 - [ ] o usuário obter seu histórico de check-in;
 - [ ] o usuário buscar academias próximas;
 - [ ] o usuário buscar academias pelo nome;
-- [ ] o usuário relaizar check-in na academia
+- [X] o usuário relizar check-in na academia
 - [ ] validar o check-in de um usuário
 - [ ] cadastrar uma academia;
 
 ## Regras de negócio
 *// condições aplicadas a cada requisito funcional*
 
-- [ ] O usuário não deve poder se cadastrar com um e-mail duplicado;
+- [x] O usuário não deve poder se cadastrar com um e-mail duplicado;
 - [ ] O usuário não pode fazer 2 check-ins no mesmo dia;
 - [ ] O usuário não pode fazer check-in se não estiver perto (100m) da academia;
 - [ ] O check-in só pode ser validado até 20 min após criado;
@@ -121,3 +121,4 @@ TOSEARCH
 - [ ] NPX
 - [ ] In memory test
 - [ ] Factory pattern
+- [ ] TDD
